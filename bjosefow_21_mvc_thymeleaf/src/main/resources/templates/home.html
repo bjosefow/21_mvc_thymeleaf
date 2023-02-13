@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona Glowna</title>
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<h1>Strona glowna</h1>
+<a href="/lista">Wyswietl wszytskie produkty</a>
+<div th:remove="all-but-first">
+    <a th:remove-but-first th:each="category: ${categories}" href="#" th:href="@{|/lista?category=${category.getDescription()}|}" th:text="|Wyswietl produkty o kategorii: ${category.getDescription()}|">Wyswietl produkty o kategorii: Art_spozywcze</a>
+    <a href="#">Wyswietl produkty o kategorii: Art_gosp_domowego</a>
+    <a href="#">Wyswietl produkty o kategorii: Inne</a>
+</div>
+</body>
+</html>

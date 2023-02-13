@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Bjosefow21MvcThymeleafApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Bjosefow21MvcThymeleafApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(Bjosefow21MvcThymeleafApplication.class, args);
+    }
 }
