@@ -1,9 +1,9 @@
 package com.example.bjosefow_21_mvc_thymeleaf;
 
 public enum Category {
-    GROCERIES("Art_spozywcze"),
-    HOUSEHOLD_ART("Art_gosp_domowego"),
-    OTHER("Inne");
+    GROCERIES("art_spozywcze"),
+    HOUSEHOLD_ART("art_gosp_domowego"),
+    OTHER("inne");
 
     private final String description;
 
