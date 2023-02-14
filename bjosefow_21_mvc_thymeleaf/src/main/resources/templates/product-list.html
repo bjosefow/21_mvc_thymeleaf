@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Produktow</title>
+</head>
+<body>
+<h1 th:unless="${category}">Lista wszystkich produktow</h1>
+<h1 th:if="${category}"
+    th:text="|Lista produktow dla katigorii: ${category.getDescriptionToDisplay()}|"></h1>
+<a href="/add">Dodaj produkt</a>
+<div th:unless="${productList.isEmpty()}">
+    <ul th:remove="all-but-first">
+        <li th:each="product: ${productList}" th:object="${product}">
+            <span th:text="|*{name} *{price} zl|">Czekolada 12.0 Art_spozywcze</span>
+        </li>
+        <li>
+            <span>Mydlo 2.5 Art_gosp_domowego</span>
+        </li>
+        <li>
+            <span>Tabletki przeciwbolowe 22.0 Inne</span>
+        </li>
+    </ul>
+    <p th:text="|Suma cen dla produktow to: ${sumPrice}|">Suma cen dla produktow to: 26.5</p>
+</div>
+<p th:if="${productList.isEmpty()}">Lista produktow jest pusta</p>
+</body>
+</html>
