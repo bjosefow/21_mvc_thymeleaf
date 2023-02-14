@@ -6,7 +6,8 @@
 </head>
 <body>
 <h1 th:unless="${category}">Lista wszystkich produktow</h1>
-<h1 th:if="${category}" th:text="|Lista produktow dla katigorii: ${category}|"></h1>
+<h1 th:if="${category}"
+    th:text="|Lista produktow dla katigorii: ${category.getDescriptionToDisplay()}|"></h1>
 <a href="/add">Dodaj produkt</a>
 <div th:unless="${productList.isEmpty()}">
     <ul th:remove="all-but-first">

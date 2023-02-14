@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th = "http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Dodawanie produktu</title>
@@ -7,23 +7,25 @@
 <body>
 <h1>Dodawanie produktu</h1>
 <form action="/save" method="post" th:object="${product}">
-  <label>
-    Nazwa produktu:
-    <input type="text" th:field="*{name}">
-  </label>
-  <label>
-    Cena:
-    <input type="text" th:field="*{price}">
-  </label>
-  <label>
-    Kategoria:
-    <select th:field="*{productCategory}" th:remove="all-but-first">
-      <option th:each="category: ${categories}" th:value="${category}" th:text="${category.getDescription()}">Art_spozywcze</option>
-      <option>Art_gosp_domowego</option>
-      <option>Inne</option>
-    </select>
-  </label>
-  <button type="submit">Dodaj</button>
+    <label>
+        Nazwa produktu:
+        <input type="text" th:field="*{name}">
+    </label>
+    <label>
+        Cena:
+        <input type="text" th:field="*{price}">
+    </label>
+    <label>
+        Kategoria:
+        <select th:field="*{productCategory}" th:remove="all-but-first">
+            <option th:each="category: ${categories}" th:value="${category}"
+                    th:text="${category.getDescriptionToDisplay()}">Art_spozywcze
+            </option>
+            <option>Art_gosp_domowego</option>
+            <option>Inne</option>
+        </select>
+    </label>
+    <button type="submit">Dodaj</button>
 </form>
 </body>
 </html>

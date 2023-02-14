@@ -33,7 +33,8 @@ public class ProductController {
         double sumPriceForProducts = productRepository.getSumPriceForProducts(productList);
         model.addAttribute("productList", productList);
         model.addAttribute("sumPrice", sumPriceForProducts);
-        model.addAttribute("category", category);
+        Category productCategory = Category.getCategoryFromDesc(category);
+        model.addAttribute("category", productCategory);
         return "product-list";
     }
 

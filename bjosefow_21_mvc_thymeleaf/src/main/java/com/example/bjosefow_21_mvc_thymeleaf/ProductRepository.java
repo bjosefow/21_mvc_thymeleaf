@@ -10,6 +10,18 @@ public class ProductRepository {
 
     private final List<Product> productList = new ArrayList<>();
 
+    public ProductRepository() {
+        productList.add(new Product("czekolada", 5.5, Category.GROCERIES));
+        productList.add(new Product("poduszka", 20.0, Category.HOUSEHOLD_ART));
+        productList.add(new Product("mleko", 2.3, Category.GROCERIES));
+        productList.add(new Product("baterie", 15.0, Category.OTHER));
+        productList.add(new Product("karma", 22.0, Category.OTHER));
+        productList.add(new Product("opony", 120.0, Category.OTHER));
+        productList.add(new Product("farba", 45.0, Category.OTHER));
+        productList.add(new Product("garnki", 45.5, Category.HOUSEHOLD_ART));
+        productList.add(new Product("patelnie", 60.0, Category.HOUSEHOLD_ART));
+    }
+
     public void addProduct(Product product) {
         productList.add(product);
     }
@@ -28,8 +40,7 @@ public class ProductRepository {
     public double getSumPriceForProducts(List<Product> productList) {
         return productList
                 .stream()
-                .map(Product::getPrice)
-                .reduce(0.0, Double::sum);
+                .mapToDouble(Product::getPrice)
+                .sum();
     }
-
 }
